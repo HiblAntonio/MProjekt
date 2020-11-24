@@ -1,0 +1,11 @@
+C:\Users\Hibl\source\repos\PForms\PForms\bin\Debug\PForms.exe.config
+C:\Users\Hibl\source\repos\PForms\PForms\bin\Debug\PForms.exe
+C:\Users\Hibl\source\repos\PForms\PForms\bin\Debug\PForms.pdb
+C:\Users\Hibl\source\repos\PForms\PForms\obj\Debug\PForms.csprojAssemblyReference.cache
+C:\Users\Hibl\source\repos\PForms\PForms\obj\Debug\PForms.Home.resources
+C:\Users\Hibl\source\repos\PForms\PForms\obj\Debug\PForms.Prijava.resources
+C:\Users\Hibl\source\repos\PForms\PForms\obj\Debug\PForms.Properties.Resources.resources
+C:\Users\Hibl\source\repos\PForms\PForms\obj\Debug\PForms.csproj.GenerateResource.cache
+C:\Users\Hibl\source\repos\PForms\PForms\obj\Debug\PForms.csproj.CoreCompileInputs.cache
+C:\Users\Hibl\source\repos\PForms\PForms\obj\Debug\PForms.exe
+C:\Users\Hibl\source\repos\PForms\PForms\obj\Debug\PForms.pdb
