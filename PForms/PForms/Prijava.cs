@@ -24,11 +24,12 @@ namespace PForms
             string zapUlazak = dtpUlazak.Text;
             string zapIzlazak = dtpIzlazak.Text;
             string zapTemperatura = nudTemperatura.Value.ToString();
+            string zapDatum = dtpDatum.Text;
 
             string conString = "Data Source=(local);Initial Catalog=Mprojekt;Integrated Security=True";
             SqlConnection con = new SqlConnection(conString);
 
-            if(zapIme == "")
+            if (zapIme == "")
             {
                 MessageBox.Show("Odaberite ime zaposlenika");
             }
@@ -40,13 +41,14 @@ namespace PForms
             {
                 con.Open();
 
-                SqlCommand insertCommand = new SqlCommand("Insert into zaposlenici(Ime, Ulazak, Izlazak, Temperatura) " +
-                "values(@zapIme, @zapUlazak, @zapIzlazak, @zapTemperatura);", con);
+                SqlCommand insertCommand = new SqlCommand("Insert into zaposlenici(Ime, Ulazak, Izlazak, Temperatura, Datum) " +
+                "values(@zapIme, @zapUlazak, @zapIzlazak, @zapTemperatura, @zapDatum);", con);
 
                 insertCommand.Parameters.AddWithValue("@zapIme", zapIme);
                 insertCommand.Parameters.AddWithValue("@zapUlazak", zapUlazak);
                 insertCommand.Parameters.AddWithValue("@zapIzlazak", zapIzlazak);
                 insertCommand.Parameters.AddWithValue("@zapTemperatura", zapTemperatura);
+                insertCommand.Parameters.AddWithValue("@zapDatum", zapDatum);
 
                 insertCommand.ExecuteNonQuery();
                 con.Close();
@@ -61,6 +63,11 @@ namespace PForms
         private void Prijava_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void dtpDatum_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

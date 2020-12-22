@@ -19,17 +19,19 @@ namespace PForms
             loadTable();
         }
 
+        DataTable dbDataSet;
+
         void loadTable()
         {
             string conString = "Data Source=(local);Initial Catalog=Mprojekt;Integrated Security=True";
             SqlConnection con = new SqlConnection(conString);
-            SqlCommand cmdDataBase = new SqlCommand("select Ime as 'Ime i prezime', Ulazak as 'Vrijeme ulaska', Izlazak as 'Vrijeme izlaska', Temperatura from zaposlenici", con);
+            SqlCommand cmdDataBase = new SqlCommand("select Ime, Ulazak as 'Vrijeme ulaska', Izlazak as 'Vrijeme izlaska', Temperatura, Datum from zaposlenici", con);
 
             try
             {
                 SqlDataAdapter sda = new SqlDataAdapter();
                 sda.SelectCommand = cmdDataBase;
-                DataTable dbDataSet = new DataTable();
+                dbDataSet = new DataTable();
                 sda.Fill(dbDataSet);
                 BindingSource bSource = new BindingSource();
 
@@ -50,9 +52,11 @@ namespace PForms
             prijava.Show();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            DataView dv = new DataView(dbDataSet);
+            dv.RowFilter = string.Format("Ime LIKE '%{0}%'", comboBox1.Text);
+            dataGridView1.DataSource = dv;
         }
     }
 }
